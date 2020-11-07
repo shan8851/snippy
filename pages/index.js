@@ -25,7 +25,8 @@ export default function Home() {
             </svg>
           </div>
           <p className="text-green-200 text-xl mb-4">
-            Never have to google that same solution again!
+            Never have to google that same solution again! All your snippets in
+            one place.
           </p>
           <Link href="/new">
             <a className="mt-3 inline-block bg-green-300 hover:bg-green-900 text-green-900 hover:text-green-300 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
