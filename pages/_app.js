@@ -1,12 +1,13 @@
+import Layout from "../components/Layout";
 import "../styles/global.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="bg-green-600 w-full p-10 min-h-screen">
+    <Layout>
       <div className="max-w-2xl mx-auto">
         <Component {...pageProps} />
       </div>
-    </div>
+    </Layout>
   );
 }
 
