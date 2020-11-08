@@ -1,1 +1,1 @@
-["JavaScript", "HTML", "CSS"];
+export default ["JavaScript", "HTML", "CSS"];

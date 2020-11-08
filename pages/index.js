@@ -4,11 +4,13 @@ import Link from "next/link";
 import Snippet from "../components/Snippet";
 import useSWR from "swr";
 import LoadingSpinner from "../components/LoadingSpinner";
+import languages from "../utils/Languages";
 
 export default function Home() {
   const { data: snippets, mutate } = useSWR("/api/snippets");
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [select, setSelect] = useState("All");
 
   useEffect(() => {
     setSearchResults(snippets);
@@ -22,6 +24,22 @@ export default function Home() {
       setSearchResults(results);
     }
   }, [searchTerm]);
+
+  const handleSelectChange = (event) => {
+    const value = event.target.value;
+    setSelect(value);
+  };
+
+  useEffect(() => {
+    if (select == "All") {
+      setSearchResults(snippets);
+    } else {
+      const results = snippets.filter(
+        (snippet) => snippet.data.language === select
+      );
+      setSearchResults(results);
+    }
+  }, [select]);
 
   if (!snippets) return <LoadingSpinner />;
 
@@ -51,7 +69,35 @@ export default function Home() {
               Create a Snippet!
             </a>
           </Link>
-          <p>Search: {searchTerm}</p>
+
+          <div>
+            <p className="font-bold text-s text-green-200 mt-8">FILTER</p>
+            <label className="mr-4 font-bold text-green-200">
+              <input
+                type="radio"
+                name="radio"
+                value="All"
+                checked={select === "All"}
+                onChange={(event) => handleSelectChange(event)}
+                className="mr-2"
+              />
+              All
+            </label>
+            {languages.map((language) => (
+              <label className="mr-4 font-bold text-green-200">
+                <input
+                  type="radio"
+                  name="radio"
+                  value={language}
+                  checked={select === language}
+                  onChange={(event) => handleSelectChange(event)}
+                  className="mr-2"
+                />
+                {language}
+              </label>
+            ))}
+          </div>
+          <p className="font-bold text-s text-green-200 mt-8">SEARCH:</p>
           <input
             type="text"
             id="search"
