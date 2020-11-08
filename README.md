@@ -19,14 +19,17 @@ Right now the feature list is pretty small, just the simple CRUD operations are 
 
 ## What's Next
 
-There are many things I would like to add to this application. First of all I will be adding a filter for snippets by language, so the user can easily toggle all snippets by language (Javascript for example).
+**NOW DONE**
+<del>There are many things I would like to add to this application. First of all I will be adding a filter for snippets by language, so the user can easily toggle all snippets by language (Javascript for example).</del>
 
-Expanding on that the next logical step would be a simple search box to query the snippets by name.
+**NOW DONE**
+<del>Expanding on that the next logical step would be a simple search box to query the snippets by name.</del>
 
 Finally I would like to make this useful for anybody who wants to use it, so adding authentication, so creating and updating snippets are locked behind a private route allowing anyone to search the snippets without being able to spam me with lots of bogus snippets :).
 
 ## Screenshots
 
 ![main screen](./images/main.png)
+![filters](./images/search.png)
 ![auth screen](./images/new.png)
 ![auth screen](./images/edit.png)
