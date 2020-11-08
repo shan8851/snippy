@@ -62,45 +62,47 @@ export default function Home() {
             </a>
           </Link>
 
-          <div>
-            <p className="font-bold text-s text-green-200 mt-8">
-              FILTER BY LANGUAGE
-            </p>
-            <div className="flex justify-between w-full">
-              <div>
-                {languages.map((language) => (
-                  <label className="mr-4 font-bold text-green-200">
-                    <input
-                      type="radio"
-                      name="radio"
-                      value={language}
-                      checked={select === language}
-                      onChange={(event) => handleSelectChange(event)}
-                      className="mr-2"
-                    />
-                    {language}
-                  </label>
-                ))}
+          <div className="bg-green-900 px-4 py-8 my-4 rounded-md">
+            <div>
+              <p className="font-bold text-s text-green-200 mb-4">
+                FILTER BY LANGUAGE
+              </p>
+              <div className="flex justify-between w-full">
+                <div>
+                  {languages.map((language) => (
+                    <label className="mr-4 font-bold text-green-200">
+                      <input
+                        type="radio"
+                        name="radio"
+                        value={language}
+                        checked={select === language}
+                        onChange={(event) => handleSelectChange(event)}
+                        className="mr-2"
+                      />
+                      {language}
+                    </label>
+                  ))}
+                </div>
+                <button
+                  className="bg-green-300 text-xs hover:bg-green-300 text-green-900 font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline mb-2 transform -translate-x-1 translate-y-1"
+                  type="submit"
+                  onClick={() => setSelect("")}
+                >
+                  RESET FILTERS
+                </button>
               </div>
-              <button
-                className="bg-green-300 text-xs hover:bg-green-300 text-green-900 font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline mb-2 transform -translate-x-1 translate-y-1"
-                type="submit"
-                onClick={() => setSelect("")}
-              >
-                RESET FILTERS
-              </button>
             </div>
+            <p className="font-bold text-s text-green-200 mt-8">SEARCH:</p>
+            <input
+              type="text"
+              id="search"
+              name="search"
+              placeholder="Enter search term..."
+              className="w-full border bg-white rounded px-3 py-2 outline-none text-gray-700"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </div>
-          <p className="font-bold text-s text-green-200 mt-8">SEARCH:</p>
-          <input
-            type="text"
-            id="search"
-            name="search"
-            placeholder="Enter search term..."
-            className="w-full border bg-white rounded px-3 py-2 outline-none text-gray-700"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
         </div>
         {searchResults &&
           searchResults.map((snippet) => (

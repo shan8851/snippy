@@ -21,7 +21,7 @@ export default function Code({ code }) {
       </button>
       {showCode && (
         <div className="relative">
-          <pre className="text-green-100 bg-green-800 rounded-md p-2 my-6 flex-wrap">
+          <pre className="text-green-100 bg-green-800 rounded-md p-2 my-6">
             {code}
           </pre>
 
