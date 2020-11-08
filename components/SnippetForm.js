@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Languages from "../utils/Languages";
 
 export default function SnippetForm({ snippet }) {
   const { register, handleSubmit, errors } = useForm({

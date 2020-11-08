@@ -1,10 +1,29 @@
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Snippet from "../components/Snippet";
 import useSWR from "swr";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function Home() {
   const { data: snippets, mutate } = useSWR("/api/snippets");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    setSearchResults(snippets);
+  }, [snippets]);
+
+  useEffect(() => {
+    if (snippets) {
+      const results = snippets.filter((s) =>
+        s.data.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setSearchResults(results);
+    }
+  }, [searchTerm]);
+
+  if (!snippets) return <LoadingSpinner />;
 
   return (
     <div className="">
@@ -12,7 +31,6 @@ export default function Home() {
         <title>Snippy</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className="">
         <div className="my-12">
           <div className="flex items-center">
@@ -33,9 +51,18 @@ export default function Home() {
               Create a Snippet!
             </a>
           </Link>
+          <p>Search: {searchTerm}</p>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            className="w-full border bg-white rounded px-3 py-2 outline-none text-gray-700"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
-        {snippets &&
-          snippets.map((snippet) => (
+        {searchResults &&
+          searchResults.map((snippet) => (
             <Snippet
               key={snippet.id}
               snippet={snippet}
