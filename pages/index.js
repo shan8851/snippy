@@ -62,7 +62,7 @@ export default function Home() {
             </a>
           </Link>
 
-          <div className="bg-green-900 px-4 py-8 my-4 rounded-md">
+          <div className="bg-green-700 px-4 py-8 my-4 rounded-md">
             <div>
               <p className="font-bold text-s text-green-200 mb-4">
                 FILTER BY LANGUAGE
