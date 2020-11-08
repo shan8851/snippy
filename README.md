@@ -29,14 +29,18 @@ Finally I would like to make this useful for anybody who wants to use it, so add
 
 ## Screenshots
 
-Home Screen:
+### Home Screen
+
 ![main screen](./images/main.png)
 
-Search and filter:
+### Search and filter
+
 ![filters](./images/Search.png)
 
-Add new:
+### Add new
+
 ![new snippet](./images/new.png)
 
-Edit existing:
+### Edit existing
+
 ![edit snippet](./images/edit.png)
