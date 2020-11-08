@@ -10,7 +10,7 @@ export default function Home() {
   const { data: snippets, mutate } = useSWR("/api/snippets");
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [select, setSelect] = useState("All");
+  const [select, setSelect] = useState("");
 
   useEffect(() => {
     setSearchResults(snippets);
@@ -31,7 +31,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (select == "All") {
+    if (select == "") {
       setSearchResults(snippets);
     } else {
       const results = snippets.filter(
@@ -71,37 +71,40 @@ export default function Home() {
           </Link>
 
           <div>
-            <p className="font-bold text-s text-green-200 mt-8">FILTER</p>
-            <label className="mr-4 font-bold text-green-200">
-              <input
-                type="radio"
-                name="radio"
-                value="All"
-                checked={select === "All"}
-                onChange={(event) => handleSelectChange(event)}
-                className="mr-2"
-              />
-              All
-            </label>
-            {languages.map((language) => (
-              <label className="mr-4 font-bold text-green-200">
-                <input
-                  type="radio"
-                  name="radio"
-                  value={language}
-                  checked={select === language}
-                  onChange={(event) => handleSelectChange(event)}
-                  className="mr-2"
-                />
-                {language}
-              </label>
-            ))}
+            <p className="font-bold text-s text-green-200 mt-8">
+              FILTER BY LANGUAGE
+            </p>
+            <div className="flex justify-between w-full">
+              <div>
+                {languages.map((language) => (
+                  <label className="mr-4 font-bold text-green-200">
+                    <input
+                      type="radio"
+                      name="radio"
+                      value={language}
+                      checked={select === language}
+                      onChange={(event) => handleSelectChange(event)}
+                      className="mr-2"
+                    />
+                    {language}
+                  </label>
+                ))}
+              </div>
+              <button
+                className="bg-green-300 text-xs hover:bg-green-300 text-green-900 font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline mb-2 transform -translate-x-1 translate-y-1"
+                type="submit"
+                onClick={() => setSelect("")}
+              >
+                RESET FILTERS
+              </button>
+            </div>
           </div>
           <p className="font-bold text-s text-green-200 mt-8">SEARCH:</p>
           <input
             type="text"
             id="search"
             name="search"
+            placeholder="Enter search term..."
             className="w-full border bg-white rounded px-3 py-2 outline-none text-gray-700"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}

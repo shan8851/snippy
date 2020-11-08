@@ -48,7 +48,3 @@ body {
     transform: rotate(360deg);
   }
 }
-
-input:checked + svg {
-  display: block;
-}
