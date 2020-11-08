@@ -30,6 +30,6 @@ Finally I would like to make this useful for anybody who wants to use it, so add
 ## Screenshots
 
 ![main screen](./images/main.png)
-![filters](./images/search.png)
+![filters](./images/Search.png)
 ![auth screen](./images/new.png)
 ![auth screen](./images/edit.png)
