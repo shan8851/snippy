@@ -10,7 +10,7 @@ export default function Home() {
       </Head>
 
       <main className="max-w-lg mx-auto">
-        <h1 className="text-green-100 text-5xl font-bold mb-4">
+        <h1 className="text-blue-100 text-5xl font-bold mb-4">
           Create New Snippet
         </h1>
         <SnippetForm />

@@ -52,7 +52,7 @@ export default function SnippetForm({ snippet }) {
     <form onSubmit={handleSubmit(snippet ? updateSnippet : createSnippet)}>
       <div className="mb-4">
         <label
-          className="block text-green-100 text-sm font-bold mb-1"
+          className="block text-blue-300 text-sm font-bold mb-1"
           htmlFor="name"
         >
           Name
@@ -61,16 +61,16 @@ export default function SnippetForm({ snippet }) {
           type="text"
           id="name"
           name="name"
-          className="w-full border bg-white rounded px-3 py-2 outline-none text-gray-700"
+          className="font-bold w-full bg-blue-600 px-3 py-2 outline-none text-gray-700"
           ref={register({ required: true })}
         />
         {errors.name && (
-          <p className="font-bold text-green-900">Name is required</p>
+          <p className="font-bold text-blue-100 underline">Name is required</p>
         )}
       </div>
       <div className="mb-4">
         <label
-          className="block text-green-100 text-sm font-bold mb-1"
+          className="block text-blue-300 text-sm font-bold mb-1"
           htmlFor="language"
         >
           Language
@@ -78,7 +78,7 @@ export default function SnippetForm({ snippet }) {
         <select
           id="language"
           name="language"
-          className="w-full border bg-white rounded px-3 py-2 outline-none text-gray-700"
+          className="font-bold w-full bg-blue-600 px-3 py-2 outline-none text-blue-900"
           ref={register({ required: true })}
         >
           {languages.map((language, index) => (
@@ -88,12 +88,14 @@ export default function SnippetForm({ snippet }) {
           ))}
         </select>
         {errors.language && (
-          <p className="font-bold text-green-900">Language is required</p>
+          <p className="font-bold text-blue-100 underline">
+            Language is required
+          </p>
         )}
       </div>
       <div className="mb-4">
         <label
-          className="block text-green-100 text-sm font-bold mb-1"
+          className="block text-blue-300 text-sm font-bold mb-1"
           htmlFor="description"
         >
           Description
@@ -102,17 +104,19 @@ export default function SnippetForm({ snippet }) {
           name="description"
           id="description"
           rows="3"
-          className="resize-none w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"
+          className="font-bold resize-none bg-blue-600 w-full px-3 py-2 placeholder-blue-200 text-blue-100 focus:outline-none"
           placeholder="What does the snippet do?"
           ref={register({ required: true })}
         ></textarea>
         {errors.description && (
-          <p className="font-bold text-green-900">Description is required</p>
+          <p className="font-bold text-blue-100 underline">
+            Description is required
+          </p>
         )}
       </div>
       <div className="mb-4">
         <label
-          className="block text-green-100 text-sm font-bold mb-1"
+          className="block text-blue-300 text-sm font-bold mb-1"
           htmlFor="code"
         >
           Code
@@ -121,22 +125,22 @@ export default function SnippetForm({ snippet }) {
           name="code"
           id="code"
           rows="10"
-          className="resize-none w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"
+          className="resize-none w-full px-3 py-2 bg-blue-600 placeholder-blue-200 text-blue-100 font-bold focus:outline-none"
           placeholder="ex. console.log('hello world')"
           ref={register({ required: true })}
         ></textarea>
         {errors.code && (
-          <p className="font-bold text-green-900">Code is required</p>
+          <p className="font-bold text-blue-100 underline">Code is required</p>
         )}
       </div>
       <button
-        className="bg-green-300 hover:bg-green-900 text-green-900 hover:text-green-300 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2"
+        className="bg-blue-300 hover:bg-blue-900 text-blue-900 hover:text-blue-300 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2"
         type="submit"
       >
         Save
       </button>
       <Link href="/">
-        <a className="mt-3 inline-block bg-green-300 hover:bg-green-900 text-green-900 hover:text-green-300 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <a className="mt-3 inline-block bg-blue-300 hover:bg-blue-700 text-blue-900 hover:text-blue-300 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
           Cancel
         </a>
       </Link>

@@ -11,7 +11,7 @@ export default function Home({ snippet }) {
       </Head>
 
       <main className="max-w-lg mx-auto">
-        <h1 className="text-green-100 text-5xl font-bold mb-4">
+        <h1 className="text-blue-100 text-5xl font-bold mb-4">
           Update {snippet.data.name}
         </h1>
         <SnippetForm snippet={snippet} />

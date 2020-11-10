@@ -51,48 +51,46 @@ export default function Home() {
       </Head>
       <main className="">
         <div className="my-12">
-          <h1 className="font-bold text-green-100 text-5xl mb-4">Snippy</h1>
-          <p className="text-green-200 text-xl mb-4">
+          <h1 className="font-bold text-blue-200 text-5xl mb-4">Snippy</h1>
+          <p className="text-blue-300 text-xl mb-4">
             Never have to google that same solution again! All your snippets in
             one place.
           </p>
           <Link href="/new">
-            <a className="mt-3 inline-block bg-green-300 hover:bg-green-900 text-green-900 hover:text-green-300 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <a className="mt-3 inline-block bg-blue-300 hover:bg-blue-900 text-blue-900 hover:text-blue-300 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Create a Snippet!
             </a>
           </Link>
 
-          <div className="bg-green-700 px-4 py-8 my-4 rounded-md">
-            <div>
-              <p className="font-bold text-s text-green-200 mb-4">
-                FILTER BY LANGUAGE
-              </p>
-              <div className="flex justify-between w-full">
-                <div>
-                  {languages.map((language) => (
-                    <label className="mr-4 font-bold text-green-200">
-                      <input
-                        type="radio"
-                        name="radio"
-                        value={language}
-                        checked={select === language}
-                        onChange={(event) => handleSelectChange(event)}
-                        className="mr-2"
-                      />
-                      {language}
-                    </label>
-                  ))}
-                </div>
-                <button
-                  className="bg-green-300 text-xs hover:bg-green-300 text-green-900 font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline mb-2 transform -translate-x-1 translate-y-1"
-                  type="submit"
-                  onClick={() => setSelect("")}
-                >
-                  RESET FILTERS
-                </button>
+          <div className="border-4 border-blue-400 px-4 py-8 my-4 rounded-md">
+            <p className="font-bold text-s text-blue-200 mb-4">
+              FILTER BY LANGUAGE
+            </p>
+            <div className="flex justify-between w-full">
+              <div>
+                {languages.map((language) => (
+                  <label className="mr-4 font-bold text-blue-200">
+                    <input
+                      type="radio"
+                      name="radio"
+                      value={language}
+                      checked={select === language}
+                      onChange={(event) => handleSelectChange(event)}
+                      className="mr-2"
+                    />
+                    {language}
+                  </label>
+                ))}
               </div>
+              <button
+                className="bg-blue-500 text-xs hover:bg-blue-800 text-blue-200 font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline mb-2 transform -translate-x-1 translate-y-1"
+                type="submit"
+                onClick={() => setSelect("")}
+              >
+                RESET
+              </button>
             </div>
-            <p className="font-bold text-s text-green-200 mt-8">SEARCH:</p>
+            <p className="font-bold text-s text-blue-300 mt-8">SEARCH:</p>
             <input
               type="text"
               id="search"
